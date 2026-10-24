@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ecossistema 3D – Mata Atlântica</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="scene"></div>
+<div id="flash" class="flash" aria-hidden="true"></div>
+
+<header id="top" class="box">
+  <div class="brand"><span class="ico" data-icon="leaf"></span><b>Ecossistema 3D</b></div>
+
+  <div class="player" role="group" aria-label="Controles da simulação">
+    <button id="btn-play" class="ibtn" type="button" title="Pausar (espaço)" aria-label="Pausar"><span data-icon="pause"></span></button>
+    <button id="speed-label" class="pill" type="button" title="Clique para voltar a 1x">1x</button>
+
+    <div class="menu-wrap">
+      <button id="btn-gear" class="ibtn" type="button" title="Configurações" aria-label="Configurações" aria-haspopup="true" aria-expanded="false"><span data-icon="gear"></span></button>
+
+      <div id="speed-menu" class="menu" role="menu" hidden>
+        <div id="menu-main">
+          <button id="open-speed" class="mi" type="button" role="menuitem">
+            <span class="i" data-icon="speed"></span>
+            <span class="grow">Velocidade de reprodução</span>
+            <span id="speed-val" class="val">Normal</span>
+            <span class="i" data-icon="chevR"></span>
+          </button>
+        </div>
+        <div id="menu-speed" hidden>
+          <button id="back-main" class="mi back" type="button">
+            <span class="i" data-icon="chevL"></span>
+            <span class="grow">Velocidade de reprodução</span>
+          </button>
+          <div id="speed-list" role="menuitemradio"></div>
+          <div class="slider">
+            <span class="i" data-icon="minus"></span>
+            <input id="speed-range" type="range" min="0.25" max="3" step="0.05" value="1" aria-label="Velocidade personalizada">
+            <span class="i" data-icon="plus"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button id="btn-night" class="ibtn" type="button" title="Alternar dia / noite" aria-label="Alternar dia e noite"><span data-icon="moon"></span></button>
+  </div>
+
+  <small id="hint">Arraste para girar · role para aproximar · clique num animal ou na legenda</small>
+</header>
+
+<aside id="legend" class="box">
+  <button id="legend-head" class="legend-head" type="button" aria-expanded="true">
+    <b>Espécies</b>
+    <span class="legend-total"><span id="total">0</span> animais</span>
+    <span class="chev" data-icon="chevron"></span>
+  </button>
+  <div id="legend-list"></div>
+  <div class="legend-actions">
+    <button id="btn-clear" class="link" type="button" hidden>Limpar destaques</button>
+    <button id="btn-reset" class="link" type="button">Restaurar quantidades</button>
+  </div>
+</aside>
+
+<aside id="card" class="box" hidden>
+  <button id="card-x" class="x" type="button" aria-label="Fechar"><span data-icon="close"></span></button>
+  <div class="card-head">
+    <div id="card-ico" class="card-ico"></div>
+    <div>
+      <h3 id="card-name"></h3>
+      <em id="card-sci"></em>
+    </div>
+  </div>
+  <div class="tags">
+    <span id="card-diet" class="tag"></span>
+    <span id="card-role" class="tag"></span>
+    <span id="card-qty" class="tag"></span>
+  </div>
+  <p id="card-desc"></p>
+  <dl>
+    <dt>Habitat</dt><dd id="card-hab"></dd>
+    <dt>Curiosidade</dt><dd id="card-fact"></dd>
+  </dl>
+</aside>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/utils/SkeletonUtils.js"></script>
+<script src="icons.js"></script>
+<script src="core/registry.js"></script>
+<script src="controls.js"></script>
+<script src="plantas/araucaria/araucaria.js"></script>
+<script src="plantas/folhalarga/grama.js"></script>
+<script src="plantas/arbusto/bush.js"></script>
+<script src="core/world.js"></script>
+<script src="core/kit.js"></script>
+<script src="animais/lobo/wolf.glb"></script>
+<script src="animais/cervo/Deer.glb"></script>
+<script src="animais/coelho/Rabbit.glb"></script>
+<script src="animais/cutia/agouti.glb"></script>
+<script src="animais/bugio/howler.glb"></script>
+<script src="animais/abelha/Bee.js"></script>
+<script src="animais/tucano/toucan.glb"></script>
+<script src="animais/gralha/azure jay.js"></script>
+<script src="core/animals.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
